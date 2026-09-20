@@ -16,6 +16,7 @@
 🔥 Vodiwalkerقدرتمند، حرفه‌ای و کاملاً رایگان
 
 کانال تلگرام : 
-https://t.me/vodiwalkervpn03
+https://t.me/pompnet
 گیت هاب :
-https://github.com/Vodiwalker
+
+https://github.com/uxurx7rh7e7xr73uue73e8
