@@ -1,0 +1,12 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/health",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "TELEGRAM_BOT_TOKEN",
+      "description": "Optional Telegram bot token from @BotFather. Without it the bot feature stays off but the panel runs normally.",
+      "requiredAtBoot": false
+    }
+  ]
+}

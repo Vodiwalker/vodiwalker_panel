@@ -1,0 +1,25 @@
+services:
+  app:
+    image: python:3.11-slim
+    working_dir: /app
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - vodiwalker_data:/app/data
+    environment:
+      - PORT=3000
+      - RAILWAY_VOLUME_MOUNT_PATH=/app/data
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    command: ["sh", "-ec", "pip install --no-cache-dir -r requirements.txt && exec python -m uvicorn main:app --host 0.0.0.0 --port 3000 --reload"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:3000/health',timeout=5).status==200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  vodiwalker_data:
